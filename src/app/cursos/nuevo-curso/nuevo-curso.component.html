@@ -1,0 +1,45 @@
+<div class="container" *ngIf="profesores.length">
+  <h3>Nuevo Curso</h3>
+  <div class="row">
+    <div class="col">
+      <label for="name">Nombre</label>
+      <input class="form-control" id="name" type="text" [(ngModel)]="curso.nombre">
+    </div>
+
+    <div class="col">
+      <label for="profesor">Profesor</label>
+      <select id="profesor" [(ngModel)]="curso.profesor" class="form-control">
+        <option *ngFor="let profesor of profesores" value="{{profesor.id}}">{{profesor.nombre}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="lugar">Lugar</label>
+      <input class="form-control" type="text" name="lugar" [(ngModel)]="curso.lugar">
+    </div>
+
+    <div class="col">
+      <label for="fecha">Fecha de Inicio</label>
+      <input class="form-control" type="date" name="fecha" [(ngModel)]="curso.fechaInicio">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="cupos">Cupos</label>
+      <input class="form-control" type="number" name="cupos" [(ngModel)]="curso.cupos">
+    </div>
+
+
+    <div class="col">
+      <label for="categoria">Area del curso</label>
+      <select class="form-control" name="categoria" [(ngModel)]="curso.categoria">
+        <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success" [disabled]="profesores.length == 0" (click)="nuevoCurso()">Enviar </button>
+
+</div>

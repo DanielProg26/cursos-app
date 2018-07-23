@@ -1,0 +1,29 @@
+<br>
+<h3 class="text-center">Cursos</h3>
+<div class="table-responsive-sm">
+<table class="table table-borderless table-hover" *ngIf="cursos.length">
+  <thead>
+    <th>Nombre</th>
+    <th>Profesor</th>
+    <th>Lugar</th>
+    <th>Fecha Inicio</th>
+    <th>Cupos</th>
+    <th>Categoria</th>
+    <th>Acciones</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let curso of cursos">
+      <td>{{curso.nombre}}</td>
+      <td>{{curso.profesor}}</td>
+      <td>{{curso.lugar}}</td>
+      <td>{{curso.fechaInicio}}</td>
+      <td>{{curso.cupos}}</td>
+      <td>{{curso.categoria}}</td>
+      <td><button type="submit" class="btn btn-danger" (click)="eliminarProfesor()">Eliminar </button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div *ngIf="! cursos.length">No hay Cursos por el momento</div>
+<br>
